@@ -3,6 +3,7 @@ const bodyparser=require('body-parser')
 const express = require('express')
 const app = express()
 const cors=require('cors')
+require('dotenv').config();
 
 // const cors = require("cors");
 const login = require('./routes/login');
@@ -10,10 +11,11 @@ const login = require('./routes/login');
 
 
 const connection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'Pravin15@',
-    database: 'Smart_Attendance'
+    host: process.env.db_host,
+    user: process.env.db_user,
+    password: process.env.db_pass,
+    database: process.env.db_name,
+    port: process.env.db_port,
 });
 
 connection.connect((err) => {
