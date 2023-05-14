@@ -10,7 +10,7 @@ router.post("/", (req, res) => {
   }
   
   console.log("[Q] MySQL query:", req.body.query);
-  console.log("Password is", req.body.password);
+//   console.log("Password is", req.body.password);
 
   connection.query(req.body.query, function(err, result, fields) {
     if (err) {
@@ -19,17 +19,21 @@ router.post("/", (req, res) => {
     }
     
     console.log(result[0]);
-    
-    if (result[0] && result[0].password === req.body.password) {
-      result[1] = { success: true };
-      result[2] = { code: generateRandomNumber() };
-      sendEmail(result[0].email, 'Action Required', 'Your access code is ' + result[2].code);
-      console.log(result[2]);
-    } else {
-      result[1] = { success: false };
+    if (result[0]){
+        console.log("success")
+        result[2] = {role:result[0].role}
+        result[0] = { success: true };
+        result[1] = { code: generateRandomNumber() };
+        sendEmail(req.body.email, 'Action Required', 'Your access code is for resetting your password is' + result[1].code);
+    }
+    else{
+        console.log("failure")
+        result[0] = { success: false };
     }
     
-    console.log(result);
+    
+    
+    // console.log(result);
     res.send(result);
   });
 });
