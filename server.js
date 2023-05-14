@@ -3,7 +3,9 @@ const app = express();
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const loginRoutes = require('./routes/login');
+const forgotRoutes = require('./routes/forgot')
 const mainRoutes = require('./routes/main');
+const resetRoutes = require('./routes/reset');
 
 app.use(cors());
 app.use(express.text());
@@ -12,7 +14,8 @@ app.use(bodyparser.json());
 app.use(express.static("public"));
 
 app.use("/login", loginRoutes);
-
+app.use("/forgot", forgotRoutes);
+app.use("/reset", resetRoutes);
 // app.use("/", mainRoutes);
 app.get("/", (req, res) => {
   // res.sendFile(path.join(__dirname, "index.html"));
