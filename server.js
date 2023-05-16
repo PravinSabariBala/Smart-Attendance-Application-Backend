@@ -6,13 +6,13 @@ const loginRoutes = require('./routes/login');
 const forgotRoutes = require('./routes/forgot')
 const mainRoutes = require('./routes/main');
 const resetRoutes = require('./routes/reset');
-
+const queryadminroute = require('./routes/query_admin')
 app.use(cors());
 app.use(express.text());
 app.use(express.json());
 app.use(bodyparser.json());
 app.use(express.static("public"));
-
+app.use("/admin",queryadminroute);
 app.use("/login", loginRoutes);
 app.use("/forgot", forgotRoutes);
 app.use("/reset", resetRoutes);
