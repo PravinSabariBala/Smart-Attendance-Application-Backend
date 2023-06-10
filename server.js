@@ -6,6 +6,7 @@ const loginRoutes = require('./routes/login');
 const forgotRoutes = require('./routes/forgot')
 // const mainRoutes = require('./routes/main');
 const resetRoutes = require('./routes/reset');
+
 const addclassschedule = require('./routes/addclassschedule')
 const queryadminroute = require('./routes/query_admin')
 
