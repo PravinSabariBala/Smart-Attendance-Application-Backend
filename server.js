@@ -6,6 +6,7 @@ const loginRoutes = require('./routes/login');
 const forgotRoutes = require('./routes/forgot')
 // const mainRoutes = require('./routes/main');
 const resetRoutes = require('./routes/reset');
+const getcoords = require('./routes/getCoords')
 
 const addclassschedule = require('./routes/addclassschedule')
 const queryadminroute = require('./routes/query_admin')
@@ -21,6 +22,7 @@ app.use("/login", loginRoutes);
 app.use("/forgot", forgotRoutes);
 app.use("/reset", resetRoutes);
 app.use("/addclassschedule", addclassschedule)
+app.use("/getcoords", getcoords)
 // app.use("/", mainRoutes);
 app.get("/", (req, res) => {
   // res.sendFile(path.join(__dirname, "index.html"));
