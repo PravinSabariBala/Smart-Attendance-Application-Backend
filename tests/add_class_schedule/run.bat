@@ -1,0 +1,1 @@
+artillery run -o add_class_schedule_report.json add_class_schedule.yml && artillery report add_class_schedule_report.json
