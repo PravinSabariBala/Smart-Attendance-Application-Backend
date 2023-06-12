@@ -1,0 +1,33 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Query Scenario - 1 Query for 1 Second"
+    flow:
+      - post:
+          url: "/addclassschedule"
+          json:
+            query: "SELECT * FROM Class_Schedule"
+    arrivalRate: 1
+    duration: 1
+    count: 10
+
+  - name: "Query Scenario - 5 Queries per Second for 5 Seconds"
+    flow:
+      - post:
+          url: "/addclassschedule"
+          json:
+            query: "SELECT * FROM Class_Schedule"
+    arrivalRate: 5
+    duration: 5
+    count: 10
+
+  - name: "Query Scenario - 10 Queries per Second for 5 Seconds"
+    flow:
+      - post:
+          url: "/addclassschedule"
+          json:
+            query: "SELECT * FROM Class_Schedule"
+    arrivalRate: 10
+    duration: 5
+    count: 10

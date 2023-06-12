@@ -1,0 +1,38 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Query Scenario - 1 Query for 1 Second"
+    flow:
+      - loop:
+          - post:
+              url: "/login"
+              json:
+                query: "SELECT * FROM Authentication WHERE email = 'example@gmail.com' AND password = 'admin1#example'"
+        count: 1
+        arrivalRate: 1
+        think: 1
+
+  - name: "Query Scenario - 5 Queries per Second for 5 Seconds"
+    flow:
+      - loop:
+          - post:
+              url: "/login"
+              json:
+                query: "SELECT * FROM Authentication WHERE email = 'example@gmail.com' AND password = 'admin1#example'"
+        count: 5
+        arrivalRate: 5
+        think: 0.2
+    duration: 5
+
+  - name: "Query Scenario - 10 Queries per Second for 5 Seconds"
+    flow:
+      - loop:
+          - post:
+              url: "/login"
+              json:
+                query: "SELECT * FROM Authentication WHERE email = 'example@gmail.com' AND password = 'admin1#example'"
+        count: 10
+        arrivalRate: 10
+        think: 0.1
+    duration: 5
