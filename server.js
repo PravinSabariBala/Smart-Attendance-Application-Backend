@@ -11,6 +11,7 @@ const markattendance = require('./routes/markattendance')
 
 const addclassschedule = require('./routes/addclassschedule')
 const queryadminroute = require('./routes/query_admin')
+const attendance = require('./routes/attendance')
 
 app.use(cors());
 app.use(express.text());
@@ -25,6 +26,8 @@ app.use("/reset", resetRoutes);
 app.use("/addclassschedule", addclassschedule)
 app.use("/getcoords", getcoords)
 app.use("/markattendance",markattendance);
+app.use("/attendance", attendance);
+
 // app.use("/", mainRoutes);
 app.get("/", (req, res) => {
   // res.sendFile(path.join(__dirname, "index.html"));
