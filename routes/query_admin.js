@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
         console.log(result)
         console.log(result1)
         
-        res.send(result+result1);
+        res.send(result1);
       });
     }else{
       res.send(result)
