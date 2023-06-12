@@ -1,0 +1,1 @@
+artillery run -o reset_report.json reset.yml && artillery report reset_report.json

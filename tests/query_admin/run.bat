@@ -1,0 +1,1 @@
+artillery run -o query_admin_report.json query_admin.yml && artillery report query_admin_report.json

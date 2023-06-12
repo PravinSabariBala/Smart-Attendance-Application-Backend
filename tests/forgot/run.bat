@@ -1,0 +1,1 @@
+artillery run -o forgot_report.json forgot.yml && artillery report forgot_report.json
