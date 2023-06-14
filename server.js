@@ -23,10 +23,8 @@ app.use(bodyparser.json());
 app.use(express.static("public"));
 
 app.use("/admin",queryadminroute);
-app.use("/attendance",queryattendance);
 app.use("/login", loginRoutes);
 app.use("/forgot", forgotRoutes);
-app.use("/fetch",fetchdata);
 app.use("/reset", resetRoutes);
 app.use("/addclassschedule", addclassschedule)
 app.use("/getcoords", getcoords)
