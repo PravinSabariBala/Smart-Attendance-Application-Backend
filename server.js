@@ -6,13 +6,15 @@ const loginRoutes = require('./routes/login');
 const forgotRoutes = require('./routes/forgot')
 // const mainRoutes = require('./routes/main');
 const resetRoutes = require('./routes/reset');
-const fetchRoutes = require('./routes/fetch');
+
+const getcoords = require('./routes/getCoords')
+const markattendance = require('./routes/markattendance')
 
 const addclassschedule = require('./routes/addclassschedule')
 const queryadminroute = require('./routes/query_admin')
-const queryattendance = require('./routes/attendance');
-const fetchdata = require('./routes/fetch');
+const attendance = require('./routes/attendance')
 
+const fetchRoutes = require('./routes/fetch');
 
 app.use(cors());
 app.use(express.text());
@@ -27,7 +29,9 @@ app.use("/forgot", forgotRoutes);
 app.use("/fetch",fetchdata);
 app.use("/reset", resetRoutes);
 app.use("/addclassschedule", addclassschedule)
-app.use("/attendance", fetchRoutes);
+app.use("/getcoords", getcoords)
+app.use("/markattendance",markattendance);
+app.use("/attendance", attendance);
 
 // app.use("/", mainRoutes);
 
