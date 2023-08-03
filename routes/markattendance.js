@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
   console.log("[Q] MySQL query:", req.body.query);
   console.log(req.body);
 
-  let result; // Declare result1 and result variables
+  let result;
 
   connection.query(req.body.query, function(err, result, fields) {
     if (err) {
